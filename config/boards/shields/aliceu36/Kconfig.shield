@@ -1,2 +1,2 @@
 config SHIELD_ALICEU36
-    def_bool $(shields_list_contains, aliceu36)
+    def_bool $(shields_list_contains,aliceu36)
