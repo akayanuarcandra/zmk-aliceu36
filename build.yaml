@@ -20,3 +20,4 @@
 include:
   - board: nrfmicro_13
     shield: aliceu36
+    artifact-name: aliceu36
