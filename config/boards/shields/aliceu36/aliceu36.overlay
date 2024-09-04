@@ -42,9 +42,9 @@
                     <&pro_micro 17 GPIO_ACTIVE_HIGH>,
                     <&pro_micro 16 GPIO_ACTIVE_HIGH>;
 
-        row-gpios = <&pro_micro 12 GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN>,
-                    <&pro_micro 13 GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN>,
-                    <&pro_micro 14 GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN>,
-                    <&pro_micro 15 GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN>;
+        row-gpios = <&pro_micro 12 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&pro_micro 13 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&pro_micro 14 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>,
+                    <&pro_micro 15 GPIO_ACTIVE_HIGH GPIO_PULL_DOWN>;
     };
 };
