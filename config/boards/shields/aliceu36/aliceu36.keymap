@@ -68,7 +68,7 @@
             >;
         };
 
-        navigation_layer { //2
+        nav_layer { //2
             bindings = <
                 &none       &none       &none       &none       &none       &kp PSCRN       &kp INS         &kp CAPS    &kp BSLH    &kp PIPE
                 &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT   &none
@@ -90,7 +90,7 @@
             bindings = <
                 &kp N1      &kp N2      &kp N3      &kp N4          &kp N5          &soft_off   &none       &none       &none       &none
                 &kp N6      &kp N7      &kp N8      &kp N9          &kp N0          &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
-                &kp SEMI    &none       &none       &none           &none           &none       &none       &none       &none       &none   
+                &kp SEMI    &none       &none       &none           &none           &none       &none       &none       &none       &mo BLUETOOTH   
                                         &none       &kp LPAR        &kp RPAR        &none       &none       &none
             >;
         };
