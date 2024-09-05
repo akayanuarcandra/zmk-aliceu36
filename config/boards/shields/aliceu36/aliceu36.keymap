@@ -1,17 +1,134 @@
+#include "mouse.dtsi"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/mouse.h>
+
+#define QWERTY 0
+#define MEDIA 1
+#define NAV 2
+#define MOUSE 3
+#define NUMBER 4
+#define SYMBOL 5
+#define FUNC 6
+#define BLUETOOTH 7
+#define GAME 8
+
+&soft_off {
+    hold-time-ms = <1000>; // Only turn off it the key is held for 1 seconds or longer.
+};
 
 / {
+    vbatt: vbatt {
+                compatible = "zmk,battery-nrf-vddh";
+        };
+        chosen {
+                zmk,battery = &vbatt;
+        };
+        behaviors {
+                lpi: left_require_prior_idle {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "balanced";
+                        tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+                        quick-tap-ms = <175>;
+                        require-prior-idle-ms = <60>;
+                        bindings = <&kp>, <&kp>;
+                };
+                rpi: right_require_prior_idle {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "balanced";
+                        tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+                        quick-tap-ms = <175>;
+                        require-prior-idle-ms = <60>;
+                        bindings = <&kp>, <&kp>;
+                };
+        };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        qwerty_layer { //0
             bindings = <
-                &kp Q  &kp W       &kp E        &kp R        &kp T       &kp Y &kp U        &kp I           &kp O       &kp P
-                &kp A  &kp S &kp D &kp F &kp G       &kp H &kp J &kp K    &kp L &kp QUOT
-                &kp Z  &kp X       &kp C        &kp V        &kp B       &kp N &kp M        &kp COMMA       &kp DOT     &kp FSLH
-                                   &kp TAB      &kp TAB      &kp ENTER   &kp SPACE          &kp BACKSPACE   &kp BACKSPACE
+                &kp Q       &kp W           &kp E           &kp R           &kp T               &kp Y               &kp U                   &kp I           &kp O       &kp P
+                &kp A       &lpi LCTRL S    &lpi LALT D     &lpi LSHFT F    &kp G               &kp H               &rpi LSFT J             &rpi LALT K     &kp LCTRL L &kp QUOT
+                &kp Z       &kp X           &kp C           &kp V           &kp B               &kp N               &kp M                   &kp COMMA       &kp DOT     &kp FSLH
+                                            &lt MEDIA ESC   &lt NAV TAB     &lt MOUSE ENTER     &lt NUMBER SPACE    &lt SYMBOL BACKSPACE    &lt FUNC DELETE
+                >;
+        };
+
+        media_layer { //1
+            bindings = <
+                &none       &none       &none       &none       &none    &none           &kp C_MUTE      &none       &none       &to GAME
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none    &kp C_BRI_UP    &kp C_VOL_UP    &kp C_PP    &kp C_PREV  &kp C_NEXT
+                &none       &none       &none       &none       &none    &kp C_BRI_DN    &kp C_VOL_DN    &none       &none       &none
+                                        &none       &none       &none    &none           &none           &none
+            >;
+        };
+
+        navigation_layer { //2
+            bindings = <
+                &none       &none       &none       &none       &none       &kp PRINTSCREEN &kp INS         &kp CAPS    &kp BACKSLASH   &kp PIPE
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT       &kp caps_word
+                &none       &none       &none       &none       &none       &kp HOME        &kp PG_DN       &kp PG_UP   &kp END         &none
+                                        &none       &none       &none       &kp SPACE       &kp BACKSPACE   &kp DELETE
+            >;
+        };
+
+        mouse_layer { //3
+            bindings = <
+                &none       &none       &none       &none       &none       &kp K_PASTE     &kp K_COPY      &kp K_CUT       &none           &none
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT &none
+                &none       &none       &none       &none       &none       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT &none
+                                        &none       &none       &none       &mkp LCLK       &mkp RCLK       &mkp MCLK 
+            >;
+        };
+
+        number_layer { //4
+            bindings = <
+                &kp N1          &kp N2      &kp N3      &kp N4          &kp N5          &soft_off   &none       &none       &none       &none
+                &kp N6          &kp N7      &kp N8      &kp N9          &kp N0          &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
+                &kp SEMICOLON   &none       &none       &none           &none       &none       &none       &none       &none       &none   
+                                            &none       &kp LPAR        &kp RPAR        &none       &none       &none
+            >;
+        };
+
+        symbol_layer { //5
+            bindings = <
+                &kp EXCL    &kp AT      &kp HASH    &kp DOLLAR      &kp PERCENT     &none       &none       &none       &none       &none
+                &kp CARET   &kp AMPS    &kp ASTRK   &kp MINUS       &kp PLUS        &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
+                &kp COLON   &kp TILDE   &kp GRAVE   &kp UNDERSCORE  &kp EQUAL       &none       &none       &none       &none       &none   
+                                        &none       &kp LBRC        &kp RBRC        &none       &none       &none
+            >;
+        };
+
+        func_layer { //6
+            bindings = <
+                &kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &none       &none       &none       &none
+                &kp F6  &kp F7  &kp F8  &kp F9      &kp F10     &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
+                &none   &none   &none   &kp F11     &kp F12     &none       &none       &none       &none       &none   
+                                &none   &kp LBKT    &kp RBKT    &none       &none       &none
+            >;
+        };
+
+        bluetooth_layer { //7
+            bindings = <
+                &none       &bt BT_PRV      &bt BT_CLR      &bt BT_NXT      &out OUT_BLE    &out OUT_USB        &none           &none           &none   &none
+                &none       &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_CLR_ALL  &none           &ext_power EP_OFF   &bt BT_DISC 3   &bt BT_DISC 4   &none   &none
+                &none       &bt BT_SEL 0    &bt BT_SEL 1    &kp BT_SEL 2    &none           &bt BT_DISC 0       &bt BT_DISC 1   &bt BT_DISC 2   &none   &none
+                                            &none           &none           &none           &none               &none           &none
+                >;
+        };
+
+        qwerty_layer { //8
+            bindings = <
+                &kp Q       &kp W           &kp E           &kp R           &kp T               &kp Y               &kp U                   &kp I           &kp O       &kp P
+                &kp A       &kp S           &kp D           &kp F           &kp G               &kp H               &kp J                   &kp K           &kp L       &kp QUOT
+                &kp Z       &kp X           &kp C           &kp V           &kp B               &kp N               &kp M                   &kp COMMA       &kp DOT     &kp FSLH
+                                            &kp ESC         &kp TAB         &kp ENTER           &kp SPACE           &kp BACKSPACE           &to QWERTY
                 >;
         };
     };
