@@ -52,9 +52,9 @@
 
         qwerty_layer { //0
             bindings = <
-                &kp Q       &kp W           &kp E           &kp R           &kp T               &kp Y               &kp U                   &kp I           &kp O       &kp P
-                &kp A       &lpi LCTRL S    &lpi LALT D     &lpi LSHFT F    &kp G               &kp H               &rpi LSFT J             &rpi LALT K     &kp LCTRL L &kp QUOT
-                &kp Z       &kp X           &kp C           &kp V           &kp B               &kp N               &kp M                   &kp COMMA       &kp DOT     &kp FSLH
+                &kp Q       &kp W           &kp E           &kp R           &kp T               &kp Y               &kp U                   &kp I           &kp O           &kp P
+                &kp A       &lpi LCTRL S    &lpi LALT D     &lpi LSHFT F    &kp G               &kp H               &rpi LSFT J             &rpi LALT K     &lpi LCTRL L    &kp QUOT
+                &kp Z       &kp X           &kp C           &kp V           &kp B               &kp N               &kp M                   &kp COMMA       &kp DOT         &kp FSLH
                                             &lt MEDIA ESC   &lt NAV TAB     &lt MOUSE ENTER     &lt NUMBER SPACE    &lt SYMBOL BACKSPACE    &lt FUNC DELETE
                 >;
         };
