@@ -70,9 +70,9 @@
 
         navigation_layer { //2
             bindings = <
-                &none       &none       &none       &none       &none       &kp PSCRN       &kp INS         &kp CAPS    &kp FSLH        &kp PIPE
-                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT       &none
-                &none       &none       &none       &none       &none       &kp HOME        &kp PG_DN       &kp PG_UP   &kp END         &none
+                &none       &none       &none       &none       &none       &kp PSCRN       &kp INS         &kp CAPS    &kp BSLH    &kp PIPE
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT   &none
+                &none       &none       &none       &none       &none       &kp HOME        &kp PG_DN       &kp PG_UP   &kp END     &none
                                         &none       &none       &none       &kp SPACE       &kp BACKSPACE   &kp DELETE
             >;
         };
@@ -88,10 +88,10 @@
 
         number_layer { //4
             bindings = <
-                &kp N1          &kp N2      &kp N3      &kp N4          &kp N5          &soft_off   &none       &none       &none       &none
-                &kp N6          &kp N7      &kp N8      &kp N9          &kp N0          &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
-                &kp SEMICOLON   &none       &none       &none           &none       &none       &none       &none       &none       &none   
-                                            &none       &kp LPAR        &kp RPAR        &none       &none       &none
+                &kp N1      &kp N2      &kp N3      &kp N4          &kp N5          &soft_off   &none       &none       &none       &none
+                &kp N6      &kp N7      &kp N8      &kp N9          &kp N0          &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
+                &kp SEMI    &none       &none       &none           &none           &none       &none       &none       &none       &none   
+                                        &none       &kp LPAR        &kp RPAR        &none       &none       &none
             >;
         };
 
@@ -99,14 +99,14 @@
             bindings = <
                 &kp EXCL    &kp AT      &kp HASH    &kp DOLLAR      &kp PERCENT     &none       &none       &none       &none       &none
                 &kp CARET   &kp AMPS    &kp ASTRK   &kp MINUS       &kp PLUS        &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
-                &kp COLON   &kp TILDE   &kp GRAVE   &kp UNDERSCORE  &kp EQUAL       &none       &none       &none       &none       &none   
+                &kp COLON   &kp TILDE   &kp GRAVE   &kp UNDER       &kp EQUAL       &none       &none       &none       &none       &none   
                                         &none       &kp LBRC        &kp RBRC        &none       &none       &none
             >;
         };
 
         func_layer { //6
             bindings = <
-                &kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &none       &none       &none       &none
+                &kp F1  &kp F2  &kp F3  &kp F4      &kp F5      &none       &none       &none       &none       &none
                 &kp F6  &kp F7  &kp F8  &kp F9      &kp F10     &none       &kp LSHFT   &kp LALT    &kp LCTRL   &kp LGUI
                 &none   &none   &none   &kp F11     &kp F12     &none       &none       &none       &none       &none   
                                 &none   &kp LBKT    &kp RBKT    &none       &none       &none
