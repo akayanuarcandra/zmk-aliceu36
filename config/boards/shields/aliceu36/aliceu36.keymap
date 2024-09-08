@@ -72,7 +72,7 @@
         nav_layer { //2
             bindings = <
                 &none       &none       &none       &none       &none       &kp PSCRN       &kp INS         &kp CAPS    &kp BSLH    &kp PIPE
-                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT   &none
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none       &kp LEFT        &kp DOWN        &kp UP      &kp RIGHT   &caps_word
                 &none       &none       &none       &none       &none       &kp HOME        &kp PG_DN       &kp PG_UP   &kp END     &none
                                         &none       &none       &none       &kp SPACE       &kp BACKSPACE   &kp DELETE
             >;
@@ -116,10 +116,10 @@
 
         bluetooth_layer { //7
             bindings = <
-                &none  &bt BT_PRV     &bt BT_CLR    &bt BT_NXT      &out OUT_BLE    &out OUT_USB      &none           &none           &none   &none
-                &none  &bt BT_SEL 3   &bt BT_SEL 4  &bt BT_CLR_ALL  &none           &none             &bt BT_DISC 3   &bt BT_DISC 4   &none   &none
-                &none  &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2    &none           &bt BT_DISC 0     &bt BT_DISC 1   &bt BT_DISC 2   &none   &none
-                                      &none         &none           &none           &none             &none           &none
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4
+                &none           &none           &bt BT_PRV      &bt BT_NXT      &none           &none           &none           &none           &none           &none
+                &none           &none           &none           &none           &none           &out OUT_BLE    &out OUT_USB    &bt BT_CLR_ALL  &bt BT_CLR      &none 
+                                                &none           &none           &none           &none           &none           &none
                 >;
         };
 
