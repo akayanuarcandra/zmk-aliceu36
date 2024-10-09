@@ -31,13 +31,14 @@
                 lpi: left_require_prior_idle {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
-                        flavor = "tap-preferred";
+                        flavor = "balanced";
                         tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
                         quick-tap-ms = <175>;
                         require-prior-idle-ms = <60>;
                         bindings = <&kp>, <&kp>;
                 };
-                rpi: right_require_prior_idle {
+
+                ltp: left_tap_priority {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         flavor = "tap-preferred";
@@ -46,6 +47,27 @@
                         require-prior-idle-ms = <60>;
                         bindings = <&kp>, <&kp>;
                 };
+
+                rpi: right_require_prior_idle {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "balanced";
+                        tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+                        quick-tap-ms = <175>;
+                        require-prior-idle-ms = <60>;
+                        bindings = <&kp>, <&kp>;
+                };
+
+                rtp: right_tap_priority {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        flavor = "tap-preferred";
+                        tapping-term-ms = <200>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+                        quick-tap-ms = <175>;
+                        require-prior-idle-ms = <60>;
+                        bindings = <&kp>, <&kp>;
+                };
+                
         };
 
     keymap {
@@ -54,7 +76,7 @@
         qwerty_layer { //0
             bindings = <
                 &kp Q       &kp W           &kp E           &kp R           &kp T               &kp Y               &kp U                   &kp I           &kp O           &kp P
-                &kp A       &lpi LCTRL S    &lpi LALT D     &lpi LSHFT F    &kp G               &kp H               &rpi LSFT J             &rpi LALT K     &rpi LCTRL L    &rpi LGUI QUOT
+                &kp A       &ltp LCTRL S    &lpi LALT D     &lpi LSHFT F    &kp G               &kp H               &rpi LSFT J             &rpi LALT K     &rtp LCTRL L    &rtp LGUI QUOT
                 &kp Z       &kp X           &kp C           &kp V           &kp B               &kp N               &kp M                   &kp COMMA       &kp DOT         &kp FSLH
                                             &lt MEDIA ESC   &lt NAV TAB     &lt MOUSE ENTER     &lt NUMBER SPACE    &lt SYMBOL BACKSPACE    &lt FUNC DELETE
                 >;
