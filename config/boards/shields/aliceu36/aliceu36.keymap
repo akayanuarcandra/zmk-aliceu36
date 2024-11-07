@@ -166,13 +166,13 @@
                 >;
         };
 
-        gd_layer {
+        gd_layer { //9
             bindings = <
                 &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
                 &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
                 &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
                                 &kp ESC     &kp TAB &lt MOUSE ENTER &kp SPACE   &kp BACKSPACE   &to QWERTY
             >;
-        }
+        };
     };
 };
