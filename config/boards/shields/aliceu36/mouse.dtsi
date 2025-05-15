@@ -11,7 +11,7 @@
 };
 
 &msc {
-  acceleration-exponent = <1>;      // 0
-  time-to-max-speed-ms = <1>;      // 500
-  delay-ms = <1>;                   // 10
+  acceleration-exponent = <0>;      // 0
+  time-to-max-speed-ms = <200>;      // 500
+  delay-ms = <0>;                   // 10
 };
