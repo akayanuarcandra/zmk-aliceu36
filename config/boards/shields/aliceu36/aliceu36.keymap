@@ -19,7 +19,7 @@
 #define FUNC 6
 #define BLUETOOTH 7
 #define GAME 8
-#define COLEMAK
+#define COLEMAK 9
 
 &soft_off {
     hold-time-ms = <1000>; // Only turn off it the key is held for 1 seconds or longer.
