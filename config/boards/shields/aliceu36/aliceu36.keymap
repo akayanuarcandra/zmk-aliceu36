@@ -19,7 +19,7 @@
 #define FUNC 6
 #define BLUETOOTH 7
 #define GAME 8
-#define GD 9
+#define COLEMAK
 
 &soft_off {
     hold-time-ms = <1000>; // Only turn off it the key is held for 1 seconds or longer.
@@ -101,8 +101,8 @@
         media_layer { //1
             bindings = <
                 &none       &none       &none       &none       &none    &terminal       &kp C_MUTE      &none       &none       &to GAME
-                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none    &kp C_BRI_UP    &kp C_VOL_UP    &kp C_PP    &none       &to GD
-                &none       &none       &none       &none       &none    &kp C_BRI_DN    &kp C_VOL_DN    &kp C_PREV  &kp C_NEXT  &none
+                &kp LGUI    &kp LCTRL   &kp LALT    &kp LSHFT   &none    &kp C_BRI_UP    &kp C_VOL_UP    &kp C_PP    &none       &to QWERTY
+                &none       &none       &none       &none       &none    &kp C_BRI_DN    &kp C_VOL_DN    &kp C_PREV  &kp C_NEXT  &to COLEMAK
                                         &none       &none       &none    &none           &none           &none
             >;
         };
@@ -170,12 +170,12 @@
                 >;
         };
 
-        gd_layer { //9
+        colemak_layer { //9
             bindings = <
-                &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
-                &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
-                &kp A   &kp A   &kp SPACE   &kp D   &kp D           &kp LEFT    &kp LEFT        &kp UP      &kp RIGHT   &kp RIGHT
-                                &kp ESC     &kp TAB &lt MOUSE ENTER &kp SPACE   &kp BACKSPACE   &to QWERTY
+                &kp Q   &kp W           &kp F           &kp P           &kp G               &kp J               &kp L                   &kp U           &kp Y           &kp QUOT
+                &kp A   &ltp LCTRL R    &ltp LALT S     &ltp LSHFT T    &kp D               &kp H               &ltp LSHFT N            &ltp LALT E     &ltp LCTRL I    &rtp LGUI O
+                &kp Z   &kp X           &kp C           &kp V           &kp B               &kp K               &kp M                   &kp COMMA       &kp DOT         &kp SLASH
+                                        &lt MEDIA ESC   &lt NAV TAB     &lt MOUSE ENTER     &lt NUMBER SPACE    &lt SYMBOL BACKSPACE    &lt FUNC DELETE
             >;
         };
     };
